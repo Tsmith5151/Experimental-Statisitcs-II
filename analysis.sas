@@ -135,6 +135,8 @@ input  Id    MSSubClass    MSZoning_C_all    MSZoning_FV    MSZoning_RH
         SaleCondition_Alloca    SaleCondition_Family  
         SaleCondition_Normal    SaleCondition_Partial SalePrice;
 run;
+proc print data=train (obs=5);
+run;
 
 proc reg data=train;
 		model SalePrice = Id MSSubClass    MSZoning_C_all    MSZoning_FV    MSZoning_RH  
@@ -414,6 +416,4 @@ proc reg data=train;
 	model SalePrice = MSSubClass LotArea Neighborhood_Crawfor Neighborhood_NoRidge Neighborhood_NridgHt Neighborhood_StoneBr
 	Condition2_PosN OverallQual OverallCond YearBuilt RoofMatl_ClyTile RoofMatl_WdShngl BsmtQual_Ex
 	BsmtExposure_Gd BsmtFinSF1 GrLivArea BedroomAbvGr KitchenQual_Ex GarageArea SaleType_New / p;
-run;
-proc print data=train (obs=3);
 run;
